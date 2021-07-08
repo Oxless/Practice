@@ -1,9 +1,12 @@
 package sample;
 
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.layout.VBox;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
 public class Controller {
 
@@ -27,11 +30,35 @@ public class Controller {
 
     public void handle(LinkedList list) {
         addButton.setOnMouseClicked(event -> {
-            list.add(Integer.parseInt(addField.getText()));
+            String text = addField.getText();
+            if(!text.matches("\\d+")) {
+                Stage stage = new Stage();
+                stage.initModality(Modality.WINDOW_MODAL);
+                VBox vBox = new VBox();
+                Label label = new Label("Вводимые данные должны быть числом");
+                label.setPadding(new Insets(20));
+                vBox.getChildren().addAll(label);
+                stage.setScene(new Scene(vBox));
+                stage.show();
+                return;
+            }
+            list.add(Integer.parseInt(text));
             updateList(list, textArea);
         });
         removeButton.setOnMouseClicked(event -> {
-            list.remove(Integer.parseInt(removeField.getText()));
+            String text = removeField.getText();
+            if(!text.matches("\\d+")) {
+                Stage stage = new Stage();
+                stage.initModality(Modality.WINDOW_MODAL);
+                VBox vBox = new VBox();
+                Label label = new Label("Вводимые данные должны быть числом");
+                label.setPadding(new Insets(20));
+                vBox.getChildren().addAll(label);
+                stage.setScene(new Scene(vBox));
+                stage.show();
+                return;
+            }
+            list.remove(Integer.parseInt(text));
             updateList(list, textArea);
         });
         sumButton.setOnMouseClicked(event -> {

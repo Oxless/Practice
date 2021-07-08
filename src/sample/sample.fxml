@@ -14,7 +14,7 @@
          <Button fx:id="removeButton" layoutX="200.0" layoutY="102.0" mnemonicParsing="false" text="Удалить" />
          <Label layoutX="39.0" layoutY="34.0" text="Добавить элемент:" />
          <Label layoutX="39.0" layoutY="85.0" text="Удалить элемент:" />
-         <TextArea fx:id="elementsArea" layoutX="39.0" layoutY="218.0" prefHeight="120.0" prefWidth="324.0" />
+         <TextArea editable="false" fx:id="elementsArea" layoutX="39.0" layoutY="218.0" prefHeight="120.0" prefWidth="324.0" />
          <Label layoutX="39.0" layoutY="201.0" text="Элементы:" />
          <TextField fx:id="addField" layoutX="39.0" layoutY="51.0" />
          <TextField fx:id="removeField" layoutX="39.0" layoutY="102.0" />
